@@ -38,7 +38,7 @@ export class DetalleClientePage implements OnInit {
     public events: Events,
     public authService: AuthService,
     public tokenService: TokenNotifService
-    ) { console.log('constructor');
+    ) { 
     this.sesionService.crearSesionBase()
         .then(() => {
         this.sesionService.getSesion()
@@ -57,7 +57,7 @@ export class DetalleClientePage implements OnInit {
   get f() { return this.frmCliente.controls; }
 
   ngOnInit() {
-    console.log('ngOnInit')    
+   
     this.iniciarValidaciones();
     this.obtenerParametros();
     if(this.cliente.id !== null){
@@ -170,7 +170,7 @@ export class DetalleClientePage implements OnInit {
           })
           .catch(error => {
             this.loadingService.dismiss();
-            console.log(error);
+
             this.alertService.present('Error', 'Hubo un error al grabar los datos');
             this.navController.navigateRoot('/home');
           });
@@ -187,13 +187,13 @@ export class DetalleClientePage implements OnInit {
             })
             .catch(error => {
               this.loadingService.dismiss();
-              console.log(error);
+      
               this.alertService.present('Error', 'Hubo un error al grabar los datos');
               this.navController.navigateRoot('/home');
             });
           }, error => {
             this.loadingService.dismiss();
-            console.log(error);
+      
             this.alertService.present('Error', 'Hubo un error al grabar los datos');
             this.navController.navigateRoot('/home');
           })
@@ -206,13 +206,13 @@ export class DetalleClientePage implements OnInit {
       .then(() => {
         this.sesionService.login(this.cliente.user)
           .subscribe(() => {
-            console.log('login exito : ' + this.sesionService.clienteSesionPrueba.nombre);
+            
             this.events.publish('user:login');
             this.navController.navigateRoot('/home');
             this.loadingService.dismiss();
-            console.log('cliente::::: ' + this.cliente.user);
+            
           }, error => {
-            console.log('error-login', error);
+           
             if (error.message) {
               this.alertService.present('Error', error.message);
             } else {
@@ -239,7 +239,7 @@ export class DetalleClientePage implements OnInit {
           });
           this.filtrarCiudades(this.lstParametros[0].pais);
         }, error => {
-          console.log(error);
+          
         });
       });
     

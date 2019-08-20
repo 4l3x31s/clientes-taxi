@@ -35,8 +35,7 @@ export class ListaContratosSolicitadosPage implements OnInit {
         .subscribe((cliente) => {
           if (cliente) {
             this.cliente = cliente;
-            console.log("cliente: " +this.cliente.nombre);
-            console.log("id: " +this.cliente.id);
+            
             //this.listaContratosPorEstado(this.cliente.id, 0);
             this.listaContratosPorUsuario(this.cliente.id);
           } else {
@@ -76,7 +75,7 @@ export class ListaContratosSolicitadosPage implements OnInit {
   }
 
   public seleccionarContrato(contrato: MdlContrato) {
-    console.log(contrato);
+  
     //this.irActualizarContrato(contrato);
     this.navParamService.set(contrato);
     this.navController.navigateRoot('/detalle-contrato');

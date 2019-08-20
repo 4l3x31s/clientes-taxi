@@ -81,7 +81,6 @@ export class AppComponent {
   }
 
   public loggedIn() {
-    console.log("logged in");
     this.sesionService.getSesion()
       .subscribe(cliente=>{
         this.clienteService.getCliente(cliente.id)
@@ -91,7 +90,6 @@ export class AppComponent {
       });
   }
   public loggedOut() {
-    console.log("logged out");
     this.cliente = undefined;
   }
 
@@ -103,22 +101,17 @@ export class AppComponent {
 
       this.fcm.subscribeToTopic('people');
       this.fcm.getToken().then(token => {
-        console.log(token);
         this.tokenService.set(token);
       });
       this.fcm.onNotification().subscribe(data => {
-        console.log(data);
         if (data.wasTapped) {
-          console.log('Received in background');
           this.router.navigate([data.landing_page, data.price]);
         } else {
-          console.log('Received in foreground');
           this.router.navigate([data.landing_page, data.price]);
         }
       });
 
       this.fcm.onTokenRefresh().subscribe(token => {
-        console.log(token);
       });
 
 
@@ -149,7 +142,6 @@ export class AppComponent {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Si',
@@ -164,7 +156,6 @@ export class AppComponent {
                     this.navController.navigateRoot('/login');
                   })
                   .catch(e=>{
-                    console.log(e);
                     this.alertService.present('Error','Error al cerrar la sesion');
                     this.loadingService.dismiss();
                   })

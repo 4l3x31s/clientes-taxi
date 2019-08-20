@@ -19,7 +19,7 @@ export class ClienteService {
     if(!mdlCliente.id){
       mdlCliente.id = Date.now();
     }
-    console.log('metodo crear cliente : ', mdlCliente);
+    
     return this.afDB.database.ref('cliente/' + mdlCliente.id).set(mdlCliente)
         .then(()=>{
           return Promise.resolve(mdlCliente);
@@ -53,7 +53,7 @@ export class ClienteService {
       this.afDB.list<MdlCliente>('cliente/',
         ref => ref.orderByChild('user').equalTo(user)).valueChanges()
         .subscribe(cliente=>{
-          console.log('service',cliente);
+      
           if(cliente.length > 0 ){
             observer.next(cliente);
           } else {

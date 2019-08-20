@@ -50,7 +50,7 @@ export class CalificarCarreraPage implements OnInit {
   async confirmarTerminar() {
     const alert = await this.alertController.create({
       header: 'Confirmar',
-      message: '¿Desea poner esa calificacion a su conductora?',
+      message: '¿Desea poner esa calificacion a su conductor?',
       buttons: [
         {
           text: 'cancelar',

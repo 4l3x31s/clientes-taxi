@@ -36,7 +36,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.initMap();
     this.geolocalizacionService.listarCambios().subscribe( data => {
       this.deleteMarkers();
-      console.log(data);
+
       this.listaGeoPosicionamiento = Object.assign(data);
       for (let geoObj of this.listaGeoPosicionamiento) {
         let image = 'assets/image/pin-mav.png';
@@ -52,7 +52,7 @@ export class HomePage implements OnInit, OnDestroy {
       navigator.geolocation.getCurrentPosition((resp) => {
         let mylocation = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
         this.location = {lat: resp.coords.latitude, lng: resp.coords.longitude};
-        console.log(this.location);
+   
         this.map = new google.maps.Map(this.mapElement.nativeElement, {
           zoom: 15,
           center: mylocation,
@@ -69,15 +69,14 @@ export class HomePage implements OnInit, OnDestroy {
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({'location': mylocation}, (results, status) =>{
           if (status === 'OK') {
-            console.log('entra a status ok');
+          
             this.processLocation(results);
           }
         })
         this.loadingService.dismiss();
       }, (error) => {
         this.loadingService.dismiss();
-        console.log("error current position")
-        console.log(error);
+      
       }, { enableHighAccuracy: true });
         this.watchID = navigator.geolocation.watchPosition((data) => {
         this.deleteMarkers();
@@ -97,7 +96,7 @@ export class HomePage implements OnInit, OnDestroy {
         this.loadingService.dismiss();
       }, error => {
         this.loadingService.dismiss();
-        console.log(error);
+  
       });
   }
 
@@ -107,7 +106,7 @@ export class HomePage implements OnInit, OnDestroy {
         if (location[i].types[0] === "locality") {
           this.ciudad = location[i].address_components[0].short_name;
           this.pais = location[i].address_components[2].long_name;  
-          console.log(this.ciudad, this.pais);
+         
         }
       }
     }   

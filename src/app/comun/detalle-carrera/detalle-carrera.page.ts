@@ -79,16 +79,16 @@ export class DetalleCarreraPage implements OnInit {
     if(!this.carrera.enCamino){
       this.mostrarCalificacion=true;
     }
-    console.log('this.carrera.id:: ' , this.carrera.id);
+
     this.carreraService.getCarrerasPorId(this.carrera.id).subscribe(carrera=>{
       this.carrera = Object.assign(carrera[0]);
-      console.log("this.carrera:: ", this.carrera);
+
     }, error=>{
-      console.log("error al obtener la carrera"+error)
+
     });
     this.conductoraService.getConductora(this.carrera.idConductora).subscribe(conductora=>{
         this.conductora = conductora;
-        console.log('this.conductora:: ', this.conductora);
+
     });
     this.cargarDatos();
   }
@@ -101,8 +101,7 @@ export class DetalleCarreraPage implements OnInit {
     
     const myLatlngIni = { lat: latInicio, lng: lngInicio};
     const myLatlngFin = { lat: latFin, lng: lngFin};
-    console.log(myLatlngFin);
-    console.log(myLatlngIni);
+
     const mapOptions = {
       zoom: 11,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -124,7 +123,7 @@ export class DetalleCarreraPage implements OnInit {
     directionsDisplay.setMap(map);
     let respuesta = this.calculateAndDisplayRoute(directionsService, directionsDisplay, myLatlngIni, myLatlngFin);
     respuesta.subscribe(data => {
-      console.log(data);
+
     });
     let markers = [];
     markers.push(new google.maps.Marker
@@ -174,7 +173,7 @@ export class DetalleCarreraPage implements OnInit {
         text: 'Editar Carrera',
         icon: 'create',
         handler: () => {
-          console.log('Editar Carrera...');
+
           this.navController.navigateForward('/registro-carrera');
           this.modalCtrl.dismiss();
         }
@@ -185,7 +184,7 @@ export class DetalleCarreraPage implements OnInit {
         text: 'Califica la carrera',
         icon: 'star',
         handler: () =>{
-          console.log("calificar carrera")
+
           this.calificarCarrera();
         }
       });

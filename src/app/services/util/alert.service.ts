@@ -17,14 +17,14 @@ export class AlertService {
     }).then( a => {
       const datoa: any = a;
       datoa.present().then( () => {
-        console.log("Alert Present");
+      
       });
     });
   }
   async dismiss() {
     this.isAlert = false;
     return await this.alertController.dismiss().then( () => {
-      console.log("Dismiss Alert");
+    
     });
   }
 }

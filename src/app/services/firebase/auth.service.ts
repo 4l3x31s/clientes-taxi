@@ -21,8 +21,7 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(user, pass)
       .then(res => {
-        console.log('Email y contraseña')
-        console.log(res);
+    
         resolve(res);
       }, err => reject(err))
     })
@@ -42,12 +41,11 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       this.afAuth.auth.sendPasswordResetEmail(email)
       .then(res => {
-        console.log(res);
+      
       }, err => {
-        console.log(err);
+        
       }).catch(err => {
-        console.log('error catch');
-        console.log(err);
+        
       })
     });
   }

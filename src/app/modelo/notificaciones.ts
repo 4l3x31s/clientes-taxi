@@ -9,7 +9,7 @@ export class Notificaciones {
 }
 export class Notificacion {
     constructor(
-        public title: string = 'Mujeres al Volante',
+        public title: string = 'Taxi',
         public body?: string ,
         public sound: string = 'default',
         public click_action: string = 'FCM_PLUGIN_ACTIVITY',

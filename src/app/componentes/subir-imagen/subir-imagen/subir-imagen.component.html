@@ -10,7 +10,7 @@
   </div>
   <ion-spinner *ngIf="cargando"></ion-spinner>
   
-  <div *ngIf="soloLectura === 'no'">
+  <div *ngIf="soloLectura">
     <div class="fileUpload" *ngIf="!cargando">
       <span>Cargar Imagen</span>
       <input type="file" class="upload" (change)="uploadImagen($event)" />

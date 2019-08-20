@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "69193804419",
-    "firebase_url": "https://mav-db.firebaseio.com",
-    "project_id": "mav-db",
-    "storage_bucket": "mav-db.appspot.com"
+    "project_number": "851172746536",
+    "firebase_url": "https://taxis-bf501.firebaseio.com",
+    "project_id": "taxis-bf501",
+    "storage_bucket": "taxis-bf501.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:69193804419:android:fb8fc867a46142d9",
+        "mobilesdk_app_id": "1:851172746536:android:3241356d94ffad8c",
         "android_client_info": {
-          "package_name": "org.mujeresalvolante.conductora"
+          "package_name": "com.yvaganet.taxicli"
         }
       },
       "oauth_client": [
         {
-          "client_id": "69193804419-5r4ti67v5thjt7vcm2uhbe8f3ptfbb39.apps.googleusercontent.com",
+          "client_id": "851172746536-uv443d28ohm4msreun0hn30mkn4grubo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2S1KLRKZhGSh140cWPD7kacCUb-GASA4"
+          "current_key": "AIzaSyCpqFuIYzFpIN-ualIa1FRHFtwPVrn0Kbo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "69193804419-5r4ti67v5thjt7vcm2uhbe8f3ptfbb39.apps.googleusercontent.com",
+              "client_id": "851172746536-uv443d28ohm4msreun0hn30mkn4grubo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -37,27 +37,27 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:69193804419:android:77dee61127c46da6",
+        "mobilesdk_app_id": "1:851172746536:android:5a6275261166a044",
         "android_client_info": {
-          "package_name": "org.mujeresalvolante.usuarios"
+          "package_name": "com.yvaganet.taxicond"
         }
       },
       "oauth_client": [
         {
-          "client_id": "69193804419-5r4ti67v5thjt7vcm2uhbe8f3ptfbb39.apps.googleusercontent.com",
+          "client_id": "851172746536-uv443d28ohm4msreun0hn30mkn4grubo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2S1KLRKZhGSh140cWPD7kacCUb-GASA4"
+          "current_key": "AIzaSyCpqFuIYzFpIN-ualIa1FRHFtwPVrn0Kbo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "69193804419-5r4ti67v5thjt7vcm2uhbe8f3ptfbb39.apps.googleusercontent.com",
+              "client_id": "851172746536-uv443d28ohm4msreun0hn30mkn4grubo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

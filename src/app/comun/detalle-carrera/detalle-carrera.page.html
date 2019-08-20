@@ -12,7 +12,7 @@
   <ion-list *ngIf="conductora">
 
     <ion-item>
-      <ion-label position="stacked">Conductora</ion-label>
+      <ion-label position="stacked">Conductor</ion-label>
       <ion-input value="{{ conductora.nombre }} {{ conductora.paterno }}" readonly></ion-input>
       <ion-icon *ngIf="conductora.celular" (click)="irWhatsApp()" slot="end" name="logo-whatsapp" style="color: #00E676"></ion-icon>
     </ion-item>

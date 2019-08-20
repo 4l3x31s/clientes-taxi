@@ -16,7 +16,7 @@ export class LoadingService {
     }).then(a => {
       const datoa: any = a;
       datoa.present().then(() => {
-        console.log('presented');
+    
         if (!this.isLoading) {
           datoa.dismiss().then(() => console.log('abort presenting'));
         }

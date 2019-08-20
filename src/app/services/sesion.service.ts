@@ -36,7 +36,7 @@ export class SesionService {
             if(environment.isSesionPrueba){
               this.clienteSesionPrueba = cliente[0];
               //this.clienteSesionPrueba.nombre += '(PRUEBA)';
-              console.log('bienvenido: ' + this.clienteSesionPrueba.nombre);
+             
             } else {
               this.sqlite.setclienteSesion(cliente[0]);
             }
@@ -94,7 +94,7 @@ export class SesionService {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            //console.log('Confirm Cancel: blah');
+      
           }
         }, {
           text: 'Si',
@@ -109,7 +109,7 @@ export class SesionService {
                     this.navController.navigateRoot('/login');
                   })
                   .catch(e=>{
-                    console.log(e);
+            
                     this.alertService.present('Error','Error al cerrar la sesion');
                     this.loadingService.dismiss();
                   })

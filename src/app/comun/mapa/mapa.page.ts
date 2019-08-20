@@ -36,7 +36,7 @@ export class MapaPage implements OnInit {
     if (this.navParam.get()){
       this.paginaRetorno = this.navParam.get().page;
     } else {
-      console.log('no hay pagina retorno');
+    
     }
     
     this.initAutocomplete();
@@ -45,7 +45,7 @@ export class MapaPage implements OnInit {
 
     let myLatlng: any = { lat: -16.4971653, lng: -68.1320507};
     let ubicacion = this.mapParamService.get();
-    console.log(ubicacion);
+
     if (ubicacion) {
       if (ubicacion.lat !== null) {
         myLatlng = { lat: parseFloat(ubicacion.lat), lng: parseFloat(ubicacion.lng)};
@@ -91,7 +91,7 @@ export class MapaPage implements OnInit {
         icon: 'assets/image/car-pin.png'
       }));
     markers[0].addListener('dragend', () => {
-      console.log(JSON.stringify(markers[0].getPosition()));
+
       const objStr: string = JSON.stringify(markers[0].getPosition());
       const obj = JSON.parse(objStr);
       // window.alert(JSON.stringify(marker.getPosition()));
@@ -100,9 +100,7 @@ export class MapaPage implements OnInit {
     });
     let respuesta = this.buscarTexto(this.map, markers, this.alertController);
     respuesta.subscribe( markers2 => {
-      console.log("ingreso")
-      console.log(markers2[0].position);
-      console.log('Lat long del buscar');
+
             let direccion = JSON.parse(JSON.stringify(markers2[0].position));
             this.latitud = direccion.lat;
             this.longitud = direccion.lng;
@@ -110,8 +108,7 @@ export class MapaPage implements OnInit {
           respuesta.subscribe(obj => {
             this.latitud = obj.lat;
             this.longitud = obj.lng;
-            console.log('Direccion obtenida desde el cuadro de texto');
-            console.log(obj);
+
           })
     })
   }
@@ -140,7 +137,7 @@ export class MapaPage implements OnInit {
         let contador = 0;
         places.forEach(function(place) {
           if (!place.geometry) {
-            console.log("El lugar buscado no existe");
+  
             return;
           }
           if (contador < 1) {
@@ -152,12 +149,11 @@ export class MapaPage implements OnInit {
               position: place.geometry.location,
               icon: 'assets/image/car-pin.png'
             }));
-            /*console.log('Lat long del buscar');
-            console.log(JSON.stringify(place.geometry.location));
+            /*
             let direccion = JSON.parse(JSON.stringify(place.geometry.location));
             this.latitud = direccion.lat;
             this.longitud = direccion.lng;
-            console.log(markers.length);
+       
             */
             if (place.geometry.viewport) {
               bounds.union(place.geometry.viewport);
@@ -167,7 +163,7 @@ export class MapaPage implements OnInit {
           }
           contador++;
         });
-        console.log(markers.length);
+      
         if(contador === 1) {
           map.fitBounds(bounds);
           observer.next(markers);
@@ -184,9 +180,9 @@ export class MapaPage implements OnInit {
   }
   markerEvent(markers): Observable<any> {
     return Observable.create((observer) => {
-      console.log(JSON.stringify(markers[0].getPosition()));
+      
         markers[0].addListener('dragend', () => {
-        console.log(JSON.stringify(markers[0].getPosition()));
+        
         const objStr: string = JSON.stringify(markers[0].getPosition());
         const obj = JSON.parse(objStr);
         observer.next(obj);

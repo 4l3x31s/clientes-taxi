@@ -27,7 +27,7 @@ export class ParametrosCarreraService {
    }   
 
    getParametrosPorPais(pais: string) {    
-    console.log('----->', pais.toUpperCase());
+ 
     return this.afDB.list('parametro-carrera', ref =>
       ref.orderByChild('pais').equalTo(pais.toUpperCase())).valueChanges();
   }

@@ -58,7 +58,7 @@ export class ConductoraService {
       this.afDB.list<MdlConductora>('conductora/',
         ref => ref.orderByChild('pais').equalTo(pais)).valueChanges()
         .subscribe(conductoras => {
-          console.log('service', conductoras);
+        
           if (conductoras.length > 0 && ciudad === conductoras[0].ciudad) {
             observer.next(conductoras);
           } else {

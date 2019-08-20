@@ -29,14 +29,14 @@ export class ContratoService {
   }
   
   listaContratosPorEstado(idUsuario: number, estadoContrato: number) {
-    console.log('idUsuario: ' + idUsuario);
+
     return new Observable<MdlContrato[]>(observer => {
       this.afDB.list<MdlContrato>('contrato/',
         ref => ref.orderByChild('idUsuario').equalTo(idUsuario)).valueChanges()
         .subscribe(contrato => {
-          console.log('contratos del usuario ' + contrato);     
+            
           if(contrato[0].estado === undefined){
-            console.log('estado de contrao: undefined (no tiene estado)');  
+      
           }else{
             if (contrato.length > 0 && estadoContrato === contrato[0].estado) {
               observer.next(contrato);

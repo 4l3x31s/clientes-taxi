@@ -79,7 +79,7 @@ export class CalendarioCarreraPage implements OnInit {
   }
 
   handleDateClick(event) {
-    console.log(event);
+
   }
 
   async handleEventClick(event) {

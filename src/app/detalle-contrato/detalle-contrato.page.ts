@@ -76,7 +76,7 @@ export class DetalleContratoPage implements OnInit {
             .subscribe((cliente) => {
             if (cliente) {
                 this.cliente = cliente;
-                console.log("cliente del contrato:::: " +this.cliente.nombre)
+                
                 this.contrato = this.navParamService.get();                
             } else {
                 this.navController.navigateRoot('/login');
@@ -86,7 +86,7 @@ export class DetalleContratoPage implements OnInit {
     }
 
     filtrarCiudades(event) {
-        console.log(event);
+        
         this.lstCiudadesFiltrado = this.lstParametros.filter(
             parametros => parametros.pais.indexOf(event) > -1
         );
@@ -111,7 +111,7 @@ export class DetalleContratoPage implements OnInit {
         })
         .catch( error => {
             this.loadingServices.dismiss();
-            console.log(error);
+         
             this.alertService.present('Error','Hubo un error al grabar los datos');                
         })
     }
@@ -128,7 +128,7 @@ export class DetalleContratoPage implements OnInit {
                         pais: this.lstParametros.find(s => s.pais === id).pais,
                     };
                 });
-            console.log(this.lstPaisesFiltrados);
+            
         }, error => {
             // this.loading.dismiss();
         });
@@ -204,7 +204,7 @@ export class DetalleContratoPage implements OnInit {
         }).then(dato => {
             dato.present();
             dato.onDidDismiss().then(resultado => {
-                console.log(resultado.data);
+              
                 this.contrato.latOrigen = resultado.data.lat;
                 this.contrato.longOrigen = resultado.data.lng;
                 if(this.contrato.latDestino != null){
@@ -227,7 +227,7 @@ export class DetalleContratoPage implements OnInit {
         }).then(dato => {
             dato.present();
             dato.onDidDismiss().then(resultado => {
-                console.log(resultado.data);
+                
                 this.contrato.latDestino = resultado.data.lat;
                 this.contrato.longDestino = resultado.data.lng;
                 //calcular costo
@@ -298,13 +298,12 @@ export class DetalleContratoPage implements OnInit {
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: () => {
-                        console.log('Confirm Cancel');
+                        
                     }
                 }, {
                     text: 'Ok',
                     handler: (data) => {
-                        console.log('Confirm Ok');
-                        console.log(data);
+                        
                         this.contrato.dias = null;
                         for (let i = 0; i < data.length; i++) {
                             if (this.contrato.dias) {
@@ -325,7 +324,7 @@ export class DetalleContratoPage implements OnInit {
         return Observable.create((observer) => {
             this.distance.getDistanceMatrix(req, (rsp, status) => {
                 // status checking goes here
-                console.log(status);
+             
                 observer.next(rsp);
                 observer.complete();
             });
@@ -333,7 +332,7 @@ export class DetalleContratoPage implements OnInit {
     }
 
     public async determinarDistanciaTiempo() {
-        console.log('ingresa calcula tiempo');
+     
 
         if (this.lstCiudadesFiltrado) {
             let responseMatrix: google.maps.DistanceMatrixRequest;
@@ -361,9 +360,7 @@ export class DetalleContratoPage implements OnInit {
             );*/
             let datos = this.getDistanceMatrix(responseMatrix);
             datos.subscribe(data => {
-                console.log(data);
-                console.log('--> ' , this.lstCiudadesFiltrado);
-                console.log('--> ' , this.ciudadSeleccionada);
+                
                 let ciudadParametro: MdlParametrosCarrera[] = this.lstCiudadesFiltrado.filter(
                     parametros => parametros.ciudad.indexOf(this.ciudadSeleccionada) > -1
                 );
@@ -375,11 +372,11 @@ export class DetalleContratoPage implements OnInit {
                         const element = results[j];
                         const distance = element.distance.value;
                         const time = element.duration.value;
-                        console.log(distance, time);
+                        
                         // calcular costos UBER: https://calculouber.netlify.com/
-                        console.log('ciudadParametro[0]: ' + ciudadParametro[0]);
+                        
                         let montoFinal: number = (ciudadParametro[0].base + ((element.duration.value / 60) * ciudadParametro[0].tiempo) + ((element.distance.value / 1000) * ciudadParametro[0].distancia));
-                        console.log(montoFinal);
+                      
                         if (montoFinal < 10) {
                             this.contrato.montoTotal = 10;
                         } else {
@@ -394,9 +391,7 @@ export class DetalleContratoPage implements OnInit {
     }
 
     async callBack(response: any, status: any) {
-        console.log('entra acá');
-        console.log(response);
-        console.log(status);
+      
         /*let ciudadParametro: MdlParametrosCarrera[] = this.lstCiudadesFiltrado.filter(
           parametros => parametros.ciudad.indexOf(this.ciudadSeleccionada) > -1
         );*/
@@ -409,9 +404,8 @@ export class DetalleContratoPage implements OnInit {
                     const element = results[j];
                     const distance = element.distance.value;
                     const time = element.duration.value;
-                    console.log(distance, time);
+          
                     // let montoFinal: number = (ciudadParametro[0].base + (element.duration.value * ciudadParametro[0].tiempo) + (element.distance.value * ciudadParametro[0].distancia));
-                    // console.log(montoFinal);
                     // this.contrato.montoTotal = montoFinal;
                     return await {distance: distance, time: time};
                 }
